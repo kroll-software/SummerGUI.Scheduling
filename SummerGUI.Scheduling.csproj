@@ -80,8 +80,4 @@
     <Folder Include="Fonts\" />
     <Folder Include="Forms\Appointment\" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="OpenTK.dll.config" />
-    <None Include="packages.config" />
-  </ItemGroup>
 </Project>

@@ -207,11 +207,16 @@ namespace SummerGUI.Scheduling
 
 			ScrollBars = ScrollBars.Vertical;
 
-            m_DrawTool = new DrawTool();
-            m_DrawTool.DayView = this;
+            m_DrawTool = new DrawTool
+            {
+                DayView = this
+            };
 
-            m_SelectionTool = new SelectionTool();
-            m_SelectionTool.DayView = this;
+            m_SelectionTool = new SelectionTool
+            {
+                DayView = this
+            };
+
             m_SelectionTool.Complete += new EventHandler(selectionTool_Complete);
 
 			m_StartDate = DateTime.Now;
