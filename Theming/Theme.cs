@@ -19,13 +19,13 @@ namespace SummerGUI.Scheduling
 		{
 			string latoSemiPath = "Fonts/Lato-Semibold.ttf".FixedExpandedPath ();
 
-			ctx.FontManager.AddFontConfig (new GUIFontConfiguration (
+			FontManager.Manager.AddFontConfig (new GUIFontConfiguration (
 				"HourFont",
 				latoSemiPath,
 				16,
 				GlyphFilterFlags.Numeric));
 
-			ctx.FontManager.AddFontConfig (new GUIFontConfiguration (
+			FontManager.Manager.AddFontConfig (new GUIFontConfiguration (
 				"MinuteFont",
 				latoSemiPath,
 				8,

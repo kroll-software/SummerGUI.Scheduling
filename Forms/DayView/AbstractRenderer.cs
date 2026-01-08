@@ -32,7 +32,7 @@ namespace SummerGUI.Scheduling
         {
             get
             {				
-				return SummerGUIWindow.CurrentContext.FontManager.DefaultFont;
+				return FontManager.Manager.DefaultFont;
             }            
         }
 
@@ -40,7 +40,7 @@ namespace SummerGUI.Scheduling
 		{
 			get
 			{				
-				return SummerGUIWindow.CurrentContext.FontManager.StatusFont;
+				return FontManager.Manager.StatusFont;
 			}            
 		}
 
@@ -48,7 +48,7 @@ namespace SummerGUI.Scheduling
 		{
 			get
 			{								
-				return SummerGUIWindow.CurrentContext.FontManager.FontByTag("HourFont");
+				return FontManager.Manager.FontByTag("HourFont");
 			}            
 		}
 
@@ -56,7 +56,7 @@ namespace SummerGUI.Scheduling
 		{
 			get
 			{					
-				return SummerGUIWindow.CurrentContext.FontManager.FontByTag("MinuteFont");
+				return FontManager.Manager.FontByTag("MinuteFont");
 			}            
 		}
 			

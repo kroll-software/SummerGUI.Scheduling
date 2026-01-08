@@ -18,6 +18,9 @@ using System.Text;
 //using System.Drawing;
 using OpenTK;
 using OpenTK.Input;
+using OpenTK.Graphics.OpenGL;
+using OpenTK.Windowing.Common;
+using OpenTK.Windowing.GraphicsLibraryFramework;    
 using SummerGUI;
 using SummerGUI.Scheduling.Data;
 
@@ -975,7 +978,7 @@ namespace SummerGUI.Scheduling
         }
         **/
 
-		public override bool OnKeyDown (OpenTK.Input.KeyboardKeyEventArgs e)
+		public override bool OnKeyDown (KeyboardKeyEventArgs e)
 		{
 			if (!Visible || !Enabled)
 				return false;
@@ -983,15 +986,15 @@ namespace SummerGUI.Scheduling
 			bool handled = false;
 
 			switch (e.Key) {
-			case Key.Left:
+			case Keys.Left:
 				StartDate = StartDate.AddDays(-1).Date;
 				handled = true;
 				break;
-			case Key.Right:
+			case Keys.Right:
 				StartDate = StartDate.AddDays(1).Date;
 				handled = true;
 				break;
-			case Key.Escape:
+			case Keys.Escape:
 				StartDate = DateTime.Now.Date;
 				handled = true;
 				break;
@@ -1436,8 +1439,8 @@ namespace SummerGUI.Scheduling
 
 			using (var hourPen = new Pen (m_Renderer.HourSeperatorColor))
 			using (var halfHourPen = new Pen (m_Renderer.HalfHourSeperatorColor, 1f))
-			using (var HourLineBuf = new LineDrawingBuffer (gfx))
-			using (var HalfHourLineBuf = new LineDrawingBuffer (gfx, LineStyles.Dotted)) {
+			using (var HourLineBuf = new LineDrawingBuffer ())
+			using (var HalfHourLineBuf = new LineDrawingBuffer (LineStyles.Dotted)) {
 
 				for (int hour = startHour * 2; hour < 24 * 2; hour++) {
 					float y = rect.Top + (hour * m_HalfHourHeight) - ScrollOffsetY;

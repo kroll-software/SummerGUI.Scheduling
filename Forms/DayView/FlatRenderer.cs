@@ -332,7 +332,7 @@ namespace SummerGUI.Scheduling
                 for (int i = 0; i < 5; i++)
                 {
 					using (var shadow_Pen = new Pen(System.Drawing.Color.FromArgb(70 - 12 * i, System.Drawing.Color.Black)))
-					using (var LineBuf = new LineDrawingBuffer (gfx))
+					using (var LineBuf = new LineDrawingBuffer ())
                     {
 						LineBuf.AddLine (shadow_Pen, xLeft + i, yButton + i, xRight + i - 1, yButton + i);
 						LineBuf.AddLine (shadow_Pen, xRight + i, yTop + i, xRight + i, yButton + i);

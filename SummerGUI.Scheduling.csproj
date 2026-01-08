@@ -1,83 +1,41 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A3D12066-FB65-4EEF-AF2A-B0842BF9145E}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+
     <RootNamespace>SummerGUI.Scheduling</RootNamespace>
     <AssemblyName>SummerGUI.Scheduling</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+
+    <!-- Signing wie früher -->
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>..\SummerGUI\SummerGUI.snk</AssemblyOriginatorKeyFile>
-    <ReleaseVersion>0.7.6</ReleaseVersion>
-    <UseMSBuildEngine>False</UseMSBuildEngine>
+
+    <!-- Alte AssemblyInfo.cs selbst haben → keine Auto-Generierung -->
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug</OutputPath>
-    <DefineConstants>DEBUG;</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <ConsolePause>false</ConsolePause>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>full</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release</OutputPath>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <ConsolePause>false</ConsolePause>
-  </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.Xml" />
-    <Reference Include="OpenTK">
-      <HintPath>..\packages\OpenTK.3.0.1\lib\net20\OpenTK.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
+
+  <ItemGroup>    
+    <PackageReference Include="OpenTK" Version="4.9.4" />    
+    <PackageReference Include="System.Drawing.Primitives" Version="4.3.0" />
   </ItemGroup>
+
   <ItemGroup>
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Data\WorkingHour.cs" />
-    <Compile Include="Theming\Theme.cs" />
-    <Compile Include="Forms\DayView\AbstractRenderer.cs" />
-    <Compile Include="Forms\DayView\Appointment.cs" />
-    <Compile Include="Forms\DayView\AppointmentEventArgs.cs" />
-    <Compile Include="Forms\DayView\DayView.cs" />
-    <Compile Include="Forms\DayView\DrawTool.cs" />
-    <Compile Include="Forms\DayView\FlatRenderer.cs" />
-    <Compile Include="Forms\DayView\ITool.cs" />
-    <Compile Include="Forms\DayView\NewAppointmentEvent.cs" />
-    <Compile Include="Forms\DayView\ResolveAppointmentsEvent.cs" />
-    <Compile Include="Forms\DayView\Selection.cs" />
-    <Compile Include="Forms\DayView\SelectionTool.cs" />
-    <Compile Include="Forms\Appointment\AppointmentDialog.cs" />
-    <Compile Include="Forms\Appointment\AppointmentForm.cs" />
-    <Compile Include="Forms\DayViewEnsamble.cs" />
-    <Compile Include="Forms\DayViewToolBar.cs" />
+    <!-- Projektverweise modern -->
+    <ProjectReference Include="..\KS.Foundation\KS.Foundation.csproj" />
+    <ProjectReference Include="..\SummerGUI\SummerGUI.csproj" />
   </ItemGroup>
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+
   <ItemGroup>
-    <ProjectReference Include="..\KS.Foundation\KS.Foundation.csproj">
-      <Project>{F10BBD4E-1DD0-4A5B-B669-CA4F03EC6EC7}</Project>
-      <Name>KS.Foundation</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SummerGUI\SummerGUI.csproj">
-      <Project>{27D216F7-4999-4D06-AF9F-2B51E09C885A}</Project>
-      <Name>SummerGUI</Name>
-    </ProjectReference>
+    <!-- Automatische Code-Einbindung -->    
+    <None Include="LICENSE" />
+    <None Include="README" />
   </ItemGroup>
+
   <ItemGroup>
-    <Folder Include="Theming\" />
-    <Folder Include="Forms\" />
-    <Folder Include="Forms\DayView\" />
-    <Folder Include="Fonts\" />
-    <Folder Include="Forms\Appointment\" />
+    <Folder Include="Properties/" />
   </ItemGroup>
+
 </Project>

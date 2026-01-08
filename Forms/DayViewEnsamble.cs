@@ -2,6 +2,9 @@
 using System.Linq;
 using OpenTK;
 using OpenTK.Input;
+using OpenTK.Graphics.OpenGL;
+using OpenTK.Windowing.Common;
+using OpenTK.Windowing.GraphicsLibraryFramework;
 using KS.Foundation;
 using SummerGUI;
 
@@ -45,8 +48,8 @@ namespace SummerGUI.Scheduling
 			this.Panel2.AddChild (CalendarSplitter);
 
 			MonthCalendar = new MonthCalendar ("monthcalendar1",
-				SummerGUIWindow.CurrentContext.FontManager.StatusFont,
-				SummerGUIWindow.CurrentContext.FontManager.BoldFont
+				FontManager.Manager.StatusFont,
+				FontManager.Manager.BoldFont
 				);
 			CalendarSplitter.Panel1.AddChild (MonthCalendar);
 
@@ -137,13 +140,13 @@ namespace SummerGUI.Scheduling
 			// gar nichts.
 
 			switch (e.Key) {
-			case Key.Down:
+			case Keys.Down:
 				if (e.Control) {
 					DayViewSplitter.Panel2Collapsed = false;
 					return true;
 				}
 				break;
-			case Key.Up:
+			case Keys.Up:
 				if (e.Control) {
 					DayViewSplitter.Panel2Collapsed = true;
 					return true;
