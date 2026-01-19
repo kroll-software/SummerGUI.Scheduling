@@ -332,18 +332,14 @@ namespace SummerGUI.Scheduling
                 for (int i = 0; i < 5; i++)
                 {
 					using (var shadow_Pen = new Pen(System.Drawing.Color.FromArgb(70 - 12 * i, System.Drawing.Color.Black)))
-					using (var LineBuf = new LineDrawingBuffer ())
-                    {
-						LineBuf.AddLine (shadow_Pen, xLeft + i, yButton + i, xRight + i - 1, yButton + i);
-						LineBuf.AddLine (shadow_Pen, xRight + i, yTop + i, xRight + i, yButton + i);
-
-                        //gfx.DrawLine(shadow_Pen, xLeft + i, yButton + i, xRight + i - 1, yButton + i); //horisontal lines
-                        //gfx.DrawLine(shadow_Pen, xRight + i, yTop + i, xRight + i, yButton + i); //vertical
+                    {					
+                        gfx.DrawLine(shadow_Pen, xLeft + i, yButton + i, xRight + i - 1, yButton + i); //horisontal lines
+                        gfx.DrawLine(shadow_Pen, xRight + i, yTop + i, xRight + i, yButton + i); //vertical
                     }
                 }
 
                 rect.Width -= 1;
-				using (var m_Pen = new Pen (System.Drawing.Color.FromArgb (70, 90, 125), 1)) {
+				using (var m_Pen = new Pen (Color.FromArgb (70, 90, 125), 1)) {
 					gfx.DrawRectangle (m_Pen, rect);
 				}
                 rect.Width += 1;

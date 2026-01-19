@@ -1439,9 +1439,7 @@ namespace SummerGUI.Scheduling
 
 			using (var hourPen = new Pen (m_Renderer.HourSeperatorColor))
 			using (var halfHourPen = new Pen (m_Renderer.HalfHourSeperatorColor, 1f))
-			using (var HourLineBuf = new LineDrawingBuffer ())
-			using (var HalfHourLineBuf = new LineDrawingBuffer (LineStyles.Dotted)) {
-
+			{
 				for (int hour = startHour * 2; hour < 24 * 2; hour++) {
 					float y = rect.Top + (hour * m_HalfHourHeight) - ScrollOffsetY;
 					if (y < rect.Top)
@@ -1449,9 +1447,9 @@ namespace SummerGUI.Scheduling
 					if (y > rect.Bottom)
 						break;
 					if ((hour % 2) == 0)
-						HourLineBuf.AddLine (hourPen, rect.Left, y, rect.Right, y);
+						gfx.DrawLine (hourPen, rect.Left, y, rect.Right, y);
 					else
-						HalfHourLineBuf.AddLine (halfHourPen, rect.Left, y, rect.Right, y);					
+						gfx.DrawLine (halfHourPen, rect.Left, y, rect.Right, y);					
 				}
 			}
 
