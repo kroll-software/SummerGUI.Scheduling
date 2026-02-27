@@ -73,8 +73,15 @@ namespace SummerGUI.Scheduling
 			};
 
 			CanFocus = true;
-			DayView1.Focus ();
+			DayView1.Focus ();			
 		}
+
+        public override void Initialize()
+        {
+            base.Initialize();
+			GrdTasks.VScrollBar.Enabled = false;
+			GrdTasks.HScrollBar.Enabled = false;
+        }
 
 		public void LoadSettings(string section)
 		{
