@@ -185,7 +185,14 @@ namespace SummerGUI.Scheduling
         }
         **/
 
-        public event EventHandler Complete;
+        public event EventHandler<EventArgs> Complete;
+        public void OnComplete()
+        {
+            if (Complete != null)
+            {
+                Complete(this, EventArgs.Empty);
+            }
+        }
 
         enum Mode
         {

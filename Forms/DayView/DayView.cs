@@ -220,7 +220,7 @@ namespace SummerGUI.Scheduling
                 DayView = this
             };
 
-            m_SelectionTool.Complete += new EventHandler(selectionTool_Complete);
+            m_SelectionTool.Complete += selectionTool_Complete;
 
 			m_StartDate = DateTime.Now;
 
