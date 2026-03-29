@@ -76,9 +76,9 @@ namespace SummerGUI.Scheduling
 			DayView1.Focus ();			
 		}
 
-        public override void Initialize()
+        public override void Initialize(IGUIContext ctx)
         {
-            base.Initialize();
+            base.Initialize(ctx);
 			GrdTasks.VScrollBar.Enabled = false;
 			GrdTasks.HScrollBar.Enabled = false;
         }
