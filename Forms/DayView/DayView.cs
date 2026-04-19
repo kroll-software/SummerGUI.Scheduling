@@ -595,7 +595,7 @@ namespace SummerGUI.Scheduling
 
 		// ToDo: This should later work automatically (without overriding)
 		// when Scrollbar.Size = WindowSize, what is true in very most cases
-		public override void OnResize()
+		public override void OnResize(IGUIContext ctx)
 		{
 			//base.OnResize();
 			AdjustScrollbar();
